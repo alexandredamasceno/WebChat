@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 // A linha app.set('views', './views'); adiciona o diretório /views à lista de diretórios em que o expresss vai procurar um arquivo com o nome especificado pelo método render. Assim, não preciso especificar o caminho completo do arquivo em todos os momentos.
 app.set('views', '/.views');
 
-const { PORT } = process.env;
+const { PORT } = process.env || 3000;
 
 const io = require('socket.io')(httpServer, {
     cors: {

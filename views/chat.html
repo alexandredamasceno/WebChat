@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Hello dear, my chat is on fireeee!!!</h1>
+    </header>
+    <main>
+        <aside>
+            <div>
+                <form id="formNickname">
+                    <input type="text" name="nickname" placeholder="Insira seu nickname" id="nickname"
+                    data-testid="nickname-box">
+                    <button type="subimit"
+                    data-testid="nickname-button">Salvar</button>
+                </form>
+            </div>
+            <ul id="userList">
+
+            </ul>
+        </aside>
+        <br>
+        <div>
+            <ul id="messages">
+                
+            </ul>
+            <div>
+                <form id="formMessages">
+                    <input type="text" id="message" name="message" placeholder="Digite uma nova mensagem aqui" data-testid="message-box">
+                    <button type="submit" data-testid="send-button">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js "></script>
+    <script src="./js/chat.js"></script>
+</body>
+</html>

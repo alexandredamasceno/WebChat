@@ -21,14 +21,13 @@ window.onload = () => {
     socket.emit('randomNickname', { nickname: createNicknameRandom(16) });
 };
 
-const data = {
-    nickname: createNicknameRandom(16),
-    chatMessage: inputMessage.value,    
-};
+// const data = {
+//     nickname: createNicknameRandom(16),
+//     chatMessage: inputMessage.value,    
+// };
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log(inputMessage.value, 'data', data);
     socket.emit('message', inputMessage.value);
 });
 

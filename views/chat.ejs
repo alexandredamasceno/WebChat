@@ -28,7 +28,10 @@
         <br>
         <div>
             <ul id="messages">
-                
+                <% messages.forEach(({message, nickname, timestamp}) => { %>
+                    <% const mes = `${timestamp} - ${nickname}: ${message}` %>
+                    <li data-testid="message"><%= mes %></li>
+                <%}) %>
             </ul>
             <div>
                 <form id="formMessages">

@@ -41,10 +41,10 @@ io.on('connection', async (socket) => {
         io.emit('randomNickname', nickname);
     });
 
-    socket.on('message', async (chatMessage) => {
+    socket.on('message', async ({ nickname, chatMessage }) => {
         const date = helper.createDate();
         await chatModel.saveMessage(chatMessage, theNickname, date);
-        io.emit('message', `${date} - ${theNickname}: ${chatMessage}`); 
+        io.emit('message', `${date} - ${theNickname || nickname}: ${chatMessage}`); 
     });
 });
 

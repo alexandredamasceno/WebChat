@@ -28,7 +28,7 @@ window.onload = () => {
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    socket.emit('message', inputMessage.value);
+    socket.emit('message', { chatMessage: inputMessage.value });
 });
 
 formNickname.addEventListener('submit', (e) => {

@@ -43,12 +43,8 @@ const createNicknameRandom = (length) => {
     }
     return newNickname;
 };
-// socket.on('randomNickname', ({ nickname }) => {
-    //     theNickname = nickname;
-    //     users.push(nickname);
-    //     socket.emit('randomNickname', { mess: nickname });
-    //     socket.broadcast.emit('randomNickname', nickname);
-    // });
+
+// Meu colega Luca Rodrigues me dei uma força com a abstração do 4 requisito: https://github.com/tryber/sd-010-b-project-webchat/pull/74/files
 const users = [];
 io.on('connection', async (socket) => {
     let nick = createNicknameRandom(16);
@@ -70,8 +66,6 @@ io.on('connection', async (socket) => {
         io.emit('randomNickname', users);
     });
 });
-
-// app.get('/', (req, res) => res.render(path.join(__dirname, 'views', 'chat.ejs')));
 
 app.get('/', async (req, res) => {
     const messages = await chatModel.getMessages();

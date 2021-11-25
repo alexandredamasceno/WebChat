@@ -9,20 +9,19 @@
 </head>
 <body>
     <header>
-        <h1>Hello dear, my chat is on fireeee!!!</h1>
+        <h1>CHAT</h1>
     </header>
     <main>
         <aside>
             <div>
-                <form id="formNickname">
+                <form>
                     <input type="text" name="nickname" placeholder="Insira seu nickname" id="nickname"
                     data-testid="nickname-box">
-                    <button type="subimit"
-                    data-testid="nickname-button">Salvar</button>
+                    <button type="button"
+                    data-testid="nickname-button" id="formNickname">Salvar</button>
                 </form>
             </div>
             <ul id="userList">
-
             </ul>
         </aside>
         <br>
@@ -34,9 +33,9 @@
                 <%}) %>
             </ul>
             <div>
-                <form id="formMessages">
+                <form>
                     <input type="text" id="message" name="message" placeholder="Digite uma nova mensagem aqui" data-testid="message-box">
-                    <button type="submit" data-testid="send-button">Enviar</button>
+                    <button type="button" data-testid="send-button" id="formMessages">Enviar</button>
                 </form>
             </div>
         </div>

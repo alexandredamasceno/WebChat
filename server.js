@@ -34,17 +34,40 @@ const chatModel = require('./models/chatModels');
 // Para entregar arquivos estáticos como imagens, arquivos CSS, e arquivos JavaScript, usamos a função de middleware express. static integrada no Express. O Express consulta os arquivos em relação ao diretório estático, para que o nome do diretório estático não faça parte da URL.
 app.use(express.static(`${__dirname}/views`));
 
+// Ref da função createNicknameRandom(): https://www.webtutorial.com.br/funcao-para-gerar-uma-string-aleatoria-random-com-caracteres-especificos-em-javascript/
+const createNicknameRandom = (length) => {
+    let newNickname = '';
+    const caracters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < length; i += 1) {
+        newNickname += caracters.charAt(Math.floor(Math.random() * caracters.length));
+    }
+    return newNickname;
+};
+// socket.on('randomNickname', ({ nickname }) => {
+    //     theNickname = nickname;
+    //     users.push(nickname);
+    //     socket.emit('randomNickname', { mess: nickname });
+    //     socket.broadcast.emit('randomNickname', nickname);
+    // });
+const users = [];
 io.on('connection', async (socket) => {
-    let theNickname = '';
-    socket.on('randomNickname', ({ nickname }) => {
-        theNickname = nickname;
-        io.emit('randomNickname', nickname);
-    });
-
+    let nick = createNicknameRandom(16);
+    users.push(nick);
+    socket.emit('currentUser', nick);
+    io.emit('randomNickname', users);
     socket.on('message', async ({ nickname, chatMessage }) => {
-        const date = helper.createDate();
-        await chatModel.saveMessage(chatMessage, theNickname, date);
-        io.emit('message', `${date} - ${theNickname || nickname}: ${chatMessage}`); 
+        await chatModel.saveMessage(chatMessage, nickname, helper.createDate());
+        io.emit('message', `${helper.createDate()} - ${nickname}: ${chatMessage}`);
+    });
+    socket.on('changeNikname', ({ currentNickname, newNickname }) => {
+        nick = newNickname;
+        users.splice(users.indexOf(currentNickname), 1);
+        users.splice(users.indexOf(currentNickname), 0, newNickname);
+        io.emit('randomNickname', users);
+    });
+    socket.on('disconnect', () => {
+        users.splice(users.indexOf(nick), 1);
+        io.emit('randomNickname', users);
     });
 });
 

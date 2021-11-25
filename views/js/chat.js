@@ -21,7 +21,6 @@ form.addEventListener('click', () => {
 });
 
 formNickname.addEventListener('click', () => {
-    // e.preventDefault();
     console.log('entrei no nickname');
     saveUserOnStorage(inputNickname.value);
     socket.emit('changeNikname', {

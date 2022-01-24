@@ -1,39 +1,20 @@
-### Termos e acordos
-
-Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do Manual da Pessoa Estudante da Trybe.
-
 # Boas vindas ao repositório do projeto WebChat!
 
-Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por _Slack_! \#vqv 🚀
-
-Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir desse repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos.
-
-# Sumário
-
-- [Habilidades](#habilidades)
-- [Entregáveis](#entregáveis)
-  - [O que deverá ser desenvolvido](#o-que-deverá-ser-desenvolvido)
-  - [Desenvolvimento](#desenvolvimento)
-  - [Data de entrega](#data-de-entrega)
-- [Instruções para entregar seu projeto](#instruções-para-entregar-seu-projeto)
-  - [Antes de começar a desenvolver](#-antes-de-começar-a-desenvolver)
-  - [Durante o desenvolvimento](#durante-o-desenvolvimento)
-- [Como desenvolver](#como-desenvolver)
-  - [Linter (Análise Estática)](#linter-análise-estática)
-  - [Variáveis](#variáveis)
-  - [Conexão com o banco](#conexão-com-o-banco)
-- [Requisitos do projeto](#requisitos-do-projeto)
-  - [Lista de Requisitos](#lista-de-requisitos)
-    `Requisitos Obrigatórios`
-    - [1 - Crie um back-end para conexão simultaneamente de clientes e troca de mensagens em chat público](#1---crie-um-back-end-para-conexão-simultânea-de-clientes-e-troca-de-mensagens-em-chat-público)
-    - [2 - Crie um frontend para que as pessoas interajam com o chat](#2---crie-um-frontend-para-que-as-pessoas-interajam-com-o-chat)
-    - [3 - Elabore o histórico do chat para que as mensagens persistam](#3---elabore-o-histórico-do-chat-para-que-as-mensagens-persistam)
-    - [4 - Informe a todos os clientes quem está online no momento](#4---informe-a-todos-os-clientes-quem-está-online-no-momento)
-- [Depois de terminar o desenvolvimento (opcional)](#depois-de-terminar-o-desenvolvimento-opcional)
-- [Revisando um pull request](#revisando-um-pull-request)
-- [Avisos Finais](#avisos-finais)
-
----
+## Instruções iniciais
+1. Clone o repositório
+  * `git clone https://github.com/alexandredamasceno/WebChat`.
+2. Entre na pasta do repositório que você acabou de clonar:
+  * `cd WebChat`.
+3. Instale as dependências
+  * `npm install`.
+4. Antes de rodar o projeto, certifique-se de:
+ - ter instalado o mongoDB na sua máquina;
+ - ter criado um arquivo `.env` na raiz do projeto com as seguintes variáveis de ambiente:
+    - DB_URL (quando iniciar o mongoDB pelo terminal você tem acesso a essa url)
+    - DB_NAME (o nome do banco de dados)
+    - PORT (a porta onde irá rodar a aplicação. É opcional, já que estabeleci uma porta padrão)
+5. Para rodar o projeto:
+ * `npm start`
 
 # Habilidades
 
